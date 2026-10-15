@@ -1,0 +1,545 @@
+/* ============================================================
+ * transition.css — 8 creative transition animations
+ * between DISCOVER ME and the portfolio stage select.
+ * ============================================================ */
+
+/* ── Shared container ── */
+.ga-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ════════════════════════════════════════════════════════════
+ * 1. CRT Power-On — old TV turning on
+ * Duration: 1800ms · Swap at 1100ms
+ * ════════════════════════════════════════════════════════════ */
+.ga-tr-crt {
+  background: #000;
+  animation: tr-crt-fade 700ms ease-out 1100ms forwards;
+}
+.ga-tr-crt-screen {
+  position: absolute; inset: 0;
+  background: #000;
+  overflow: hidden;
+}
+.ga-tr-crt-line {
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  height: 2px;
+  background: #fff;
+  box-shadow: 0 0 20px #fff, 0 0 40px rgba(34, 211, 238, 0.5);
+  transform: translateY(-50%) scaleY(1);
+  animation: tr-crt-expand 1100ms cubic-bezier(0.13, 1, 0.27, 1) forwards;
+}
+@keyframes tr-crt-expand {
+  0%   { transform: translateY(-50%) scaleY(0.001); opacity: 1; }
+  40%  { transform: translateY(-50%) scaleY(0.01); opacity: 1; }
+  70%  { transform: translateY(-50%) scaleY(0.9); opacity: 1; }
+  100% { transform: translateY(-50%) scaleY(1); opacity: 1; }
+}
+.ga-tr-crt-scanlines {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(0, 0, 0, 0.3) 3px,
+    rgba(0, 0, 0, 0.3) 4px
+  );
+  opacity: 0;
+  animation: tr-crt-scanlines-in 400ms ease-in 800ms forwards;
+}
+@keyframes tr-crt-scanlines-in {
+  to { opacity: 1; }
+}
+.ga-tr-crt-flash {
+  position: absolute; inset: 0;
+  background: #fff;
+  opacity: 0;
+  animation: tr-crt-flash-anim 300ms ease-out 900ms;
+}
+@keyframes tr-crt-flash-anim {
+  0%   { opacity: 0; }
+  30%  { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+@keyframes tr-crt-fade {
+  to { opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════
+ * 2. Glitch Teleport — RGB split, digital distortion
+ * Duration: 1200ms · Swap at 700ms
+ * ════════════════════════════════════════════════════════════ */
+.ga-tr-glitch {
+  background: rgba(8, 8, 26, 0.95);
+  animation: tr-glitch-fade 500ms ease-out 700ms forwards;
+}
+.ga-tr-glitch-wrap {
+  position: absolute; inset: 0;
+  animation: tr-glitch-shake 700ms steps(10);
+}
+@keyframes tr-glitch-shake {
+  0%   { transform: translate(0); }
+  10%  { transform: translate(-4px, 2px); }
+  20%  { transform: translate(5px, -3px); }
+  30%  { transform: translate(-3px, 4px); }
+  40%  { transform: translate(4px, -2px); }
+  50%  { transform: translate(-5px, 1px); }
+  60%  { transform: translate(3px, 3px); }
+  70%  { transform: translate(-2px, -4px); }
+  80%  { transform: translate(4px, 2px); }
+  90%  { transform: translate(-3px, -1px); }
+  100% { transform: translate(0); }
+}
+.ga-tr-glitch-bar {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 100%;
+  mix-blend-mode: screen;
+}
+.ga-tr-glitch-r {
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 60, 0.4), transparent);
+  animation: tr-glitch-r 700ms steps(8);
+}
+.ga-tr-glitch-g {
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 120, 0.3), transparent);
+  animation: tr-glitch-g 700ms steps(8);
+}
+.ga-tr-glitch-b {
+  background: linear-gradient(90deg, transparent, rgba(0, 120, 255, 0.4), transparent);
+  animation: tr-glitch-b 700ms steps(8);
+}
+@keyframes tr-glitch-r {
+  0% { transform: translateX(0); clip-path: inset(20% 0 60% 0); }
+  25% { transform: translateX(-20px); clip-path: inset(10% 0 70% 0); }
+  50% { transform: translateX(15px); clip-path: inset(40% 0 30% 0); }
+  75% { transform: translateX(-10px); clip-path: inset(5% 0 80% 0); }
+  100% { transform: translateX(0); clip-path: inset(0 0 0 0); }
+}
+@keyframes tr-glitch-g {
+  0% { transform: translateX(0); clip-path: inset(50% 0 20% 0); }
+  25% { transform: translateX(12px); clip-path: inset(30% 0 40% 0); }
+  50% { transform: translateX(-18px); clip-path: inset(60% 0 10% 0); }
+  75% { transform: translateX(8px); clip-path: inset(15% 0 60% 0); }
+  100% { transform: translateX(0); clip-path: inset(0 0 0 0); }
+}
+@keyframes tr-glitch-b {
+  0% { transform: translateX(0); clip-path: inset(70% 0 10% 0); }
+  25% { transform: translateX(-15px); clip-path: inset(45% 0 25% 0); }
+  50% { transform: translateX(20px); clip-path: inset(25% 0 50% 0); }
+  75% { transform: translateX(-8px); clip-path: inset(65% 0 15% 0); }
+  100% { transform: translateX(0); clip-path: inset(0 0 0 0); }
+}
+.ga-tr-glitch-noise {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0;
+  animation: tr-glitch-noise-anim 700ms steps(5);
+}
+@keyframes tr-glitch-noise-anim {
+  0%, 100% { opacity: 0; }
+  20%, 40%, 60% { opacity: 0.15; }
+  30%, 50% { opacity: 0.05; }
+  70% { opacity: 0.2; }
+}
+.ga-tr-glitch-flash {
+  position: absolute; inset: 0;
+  background: #fff;
+  opacity: 0;
+  animation: tr-glitch-flash-anim 200ms ease-out 600ms;
+}
+@keyframes tr-glitch-flash-anim {
+  0% { opacity: 0; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@keyframes tr-glitch-fade {
+  to { opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════
+ * 3. Pixel Dematerialize — pixels scatter from center
+ * Duration: 1500ms · Swap at 900ms
+ * ════════════════════════════════════════════════════════════ */
+.ga-tr-pixel {
+  background: #08081a;
+  animation: tr-pixel-fade 600ms ease-out 900ms forwards;
+}
+.ga-tr-pixel-grid {
+  position: absolute; inset: 0;
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+}
+.ga-tr-pixel-cell {
+  background: linear-gradient(135deg, #22d3ee, #a78bfa, #f472b6);
+  background-size: 2400% 1400%;
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  animation: tr-pixel-scatter 900ms cubic-bezier(0.4, 0, 0.6, 1) forwards;
+}
+@keyframes tr-pixel-scatter {
+  0% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.2) translate(var(--dx, 100px), var(--dy, 100px)) rotate(180deg);
+    opacity: 0;
+  }
+}
+@keyframes tr-pixel-fade {
+  to { opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════
+ * 4. Profile Reveal — photo emerges with light rings
+ * Duration: 2200ms · Swap at 1500ms
+ * ════════════════════════════════════════════════════════════ */
+.ga-tr-profile {
+  background: #000;
+  animation: tr-profile-fade 700ms ease-out 1500ms forwards;
+}
+.ga-tr-profile-wrap {
+  position: absolute; inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ga-tr-profile-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(34, 211, 238, 0.4);
+  filter: blur(20px) brightness(0.3);
+  opacity: 0;
+  transform: scale(0.5);
+  animation: tr-profile-img 1500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-shadow: 0 0 60px rgba(34, 211, 238, 0.3);
+  z-index: 2;
+}
+@keyframes tr-profile-img {
+  0% {
+    opacity: 0;
+    filter: blur(20px) brightness(0.3);
+    transform: scale(0.5);
+  }
+  30% {
+    opacity: 1;
+    filter: blur(8px) brightness(0.6);
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    filter: blur(2px) brightness(1.2);
+    transform: scale(1.15);
+  }
+}
+.ga-tr-profile-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(34, 211, 238, 0.4);
+  opacity: 0;
+  z-index: 1;
+}
+.ga-tr-profile-ring-1 {
+  width: 200px; height: 200px;
+  animation: tr-profile-ring 1500ms ease-out 300ms forwards;
+}
+.ga-tr-profile-ring-2 {
+  width: 200px; height: 200px;
+  animation: tr-profile-ring 1500ms ease-out 600ms forwards;
+  border-color: rgba(167, 139, 250, 0.4);
+}
+.ga-tr-profile-ring-3 {
+  width: 200px; height: 200px;
+  animation: tr-profile-ring 1500ms ease-out 900ms forwards;
+  border-color: rgba(244, 114, 182, 0.3);
+}
+@keyframes tr-profile-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(3); opacity: 0; }
+}
+.ga-tr-profile-glow {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.15), transparent 70%);
+  opacity: 0;
+  animation: tr-profile-glow-anim 1500ms ease-in-out 400ms forwards;
+  z-index: 0;
+}
+@keyframes tr-profile-glow-anim {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+@keyframes tr-profile-fade {
+  to { opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════
+ * 5. Insert Coin — classic arcade boot
+ * Duration: 1800ms · Swap at 1200ms
+ * ════════════════════════════════════════════════════════════ */
+.ga-tr-coin {
+  background: #000;
+  animation: tr-coin-fade 600ms ease-out 1200ms forwards;
+}
+.ga-tr-coin-wrap {
+  position: absolute; inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ga-tr-coin-text {
+  font-family: "Courier New", monospace;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 900;
+  color: #fbbf24;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+  letter-spacing: 0.2em;
+  animation: tr-coin-text-blink 600ms steps(2) 3;
+  opacity: 0;
+}
+@keyframes tr-coin-text-blink {
+  0%, 100% { opacity: 0; }
+  25%, 75% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.ga-tr-coin-coin {
+  font-size: 3rem;
+  color: #fbbf24;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: tr-coin-drop 700ms cubic-bezier(0.5, 0, 0.5, 1.5) 500ms forwards;
+}
+@keyframes tr-coin-drop {
+  0% { top: -60px; opacity: 0; transform: translateX(-50%) rotate(0deg); }
+  20% { opacity: 1; }
+  60% { top: 50%; transform: translateX(-50%) rotate(360deg); }
+  75% { top: 45%; transform: translateX(-50%) rotate(420deg); }
+  100% { top: 50%; opacity: 0; transform: translateX(-50%) rotate(540deg) scale(0.5); }
+}
+.ga-tr-coin-boot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: tr-coin-boot-in 400ms ease-in 900ms forwards;
+}
+@keyframes tr-coin-boot-in {
+  to { opacity: 1; }
+}
+.ga-tr-coin-line {
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  color: #22d3ee;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: tr-coin-line-show 300ms ease-out forwards;
+}
+.ga-tr-coin-line:nth-child(1) { animation-delay: 1000ms; }
+.ga-tr-coin-line:nth-child(2) { animation-delay: 1150ms; }
+.ga-tr-coin-line:nth-child(3) { animation-delay: 1300ms; color: #34d399; font-weight: 900; }
+@keyframes tr-coin-line-show {
+  to { opacity: 1; }
+}
+.ga-tr-coin-flash {
+  position: absolute; inset: 0;
+  background: #fff;
+  opacity: 0;
+  animation: tr-coin-flash-anim 200ms ease-out 1150ms;
+}
+@keyframes tr-coin-flash-anim {
+  0% { opacity: 0; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+@keyframes tr-coin-fade {
+  to { opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════
+ * 6. Aurora Curtain — aurora wave sweeps across
+ * Duration: 1500ms · Swap at 800ms
+ * ════════════════════════════════════════════════════════════ */
+.ga-tr-aurora {
+  background: transparent;
+  animation: tr-aurora-fade 700ms ease-out 800ms forwards;
+}
+.ga-tr-aurora-wrap {
+  position: absolute; inset: 0;
+  overflow: hidden;
+}
+.ga-tr-aurora-wave {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -100%;
+  width: 100%;
+}
+.ga-tr-aurora-wave-1 {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(34, 211, 238, 0.15) 20%,
+    rgba(34, 211, 238, 0.3) 40%,
+    rgba(167, 139, 250, 0.3) 60%,
+    rgba(167, 139, 250, 0.15) 80%,
+    transparent 100%
+  );
+  animation: tr-aurora-sweep 1500ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.ga-tr-aurora-wave-2 {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(52, 211, 153, 0.2) 30%,
+    rgba(52, 211, 153, 0.35) 50%,
+    transparent 70%
+  );
+  animation: tr-aurora-sweep 1500ms cubic-bezier(0.4, 0, 0.2, 1) 100ms forwards;
+}
+.ga-tr-aurora-wave-3 {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(244, 114, 182, 0.15) 40%,
+    rgba(244, 114, 182, 0.25) 55%,
+    transparent 70%
+  );
+  animation: tr-aurora-sweep 1500ms cubic-bezier(0.4, 0, 0.2, 1) 200ms forwards;
+}
+@keyframes tr-aurora-sweep {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+.ga-tr-aurora-edge {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -10px;
+  width: 20px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  filter: blur(8px);
+  animation: tr-aurora-edge-sweep 1500ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes tr-aurora-edge-sweep {
+  0% { left: -10px; }
+  100% { left: calc(100% - 10px); }
+}
+@keyframes tr-aurora-fade {
+  to { opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════
+ * 7. Hyperspace Warp — stars accelerate to lightspeed
+ * Duration: 1600ms · Swap at 1000ms
+ * ════════════════════════════════════════════════════════════ */
+.ga-tr-warp {
+  background: #000;
+  animation: tr-warp-fade 600ms ease-out 1000ms forwards;
+}
+.ga-tr-warp-wrap {
+  position: absolute; inset: 0;
+}
+.ga-tr-warp-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+}
+.ga-tr-warp-flash {
+  position: absolute; inset: 0;
+  background: #fff;
+  opacity: 0;
+  animation: tr-warp-flash-anim 300ms ease-out 900ms;
+}
+@keyframes tr-warp-flash-anim {
+  0% { opacity: 0; }
+  40% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@keyframes tr-warp-fade {
+  to { opacity: 0; }
+}
+
+/* ════════════════════════════════════════════════════════════
+ * 8. Boot Terminal — retro computer boot sequence
+ * Duration: 2400ms · Swap at 1900ms
+ * ════════════════════════════════════════════════════════════ */
+.ga-tr-terminal {
+  background: #000;
+  animation: tr-terminal-fade 500ms ease-out 1900ms forwards;
+}
+.ga-tr-terminal-wrap {
+  position: absolute; inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.ga-tr-terminal-screen {
+  font-family: "Courier New", monospace;
+  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+  color: #34d399;
+  text-shadow: 0 0 6px rgba(52, 211, 153, 0.4);
+  line-height: 1.7;
+  max-width: 600px;
+  width: 100%;
+}
+.ga-tr-terminal-line {
+  white-space: pre-wrap;
+  word-break: break-all;
+  animation: tr-terminal-line-in 100ms ease-out;
+}
+@keyframes tr-terminal-line-in {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.ga-tr-terminal-progress {
+  margin-top: 1rem;
+  height: 8px;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 0;
+  overflow: hidden;
+  background: rgba(52, 211, 153, 0.05);
+}
+.ga-tr-terminal-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #34d399, #22d3ee);
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.5);
+  transition: width 0.05s linear;
+}
+.ga-tr-terminal-pct {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #22d3ee;
+  text-align: right;
+}
+@keyframes tr-terminal-fade {
+  to { opacity: 0; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .ga-transition {
+    animation: tr-reduced 400ms ease-out forwards !important;
+  }
+  .ga-transition * {
+    animation: none !important;
+  }
+  @keyframes tr-reduced {
+    0% { opacity: 1; background: #000; }
+    100% { opacity: 0; background: transparent; }
+  }
+}
