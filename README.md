@@ -85,7 +85,7 @@ Rather than treating the classic version as a separate, disconnected page, the t
 </p>
 
 <p align="center">
-  <strong>A two-minute journey through my digital universe.</strong>
+  <strong>A 9 seconds journey through my digital universe.</strong>
   <br />
   From aurora-inspired visuals to RPG-style exploration — discover the portfolio beyond the screenshots.
 </p>
