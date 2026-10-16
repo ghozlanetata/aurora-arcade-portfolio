@@ -85,8 +85,14 @@ Rather than treating the classic version as a separate, disconnected page, the t
 </p>
 
 <p align="center">
-  <a href="PASTE-YOUR-PORTFOLIO-DEMO-VIDEO-LINK-HERE"><strong>▶ Watch the full portfolio walkthrough</strong></a>
+  <strong>A two-minute journey through my digital universe.</strong>
+  <br />
+  From aurora-inspired visuals to RPG-style exploration — discover the portfolio beyond the screenshots.
 </p>
+
+https://github.com/user-attachments/assets/949c04c1-ccfa-4bbc-b145-2f57e49ba6dd
+
+
 
 ## 🧩 More than a visual experiment
 
