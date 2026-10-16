@@ -1,5 +1,10 @@
-# ✦ AURORA ARCADE ✦
-### A portfolio, reimagined as an adventure.
+<p align="center">
+  <img
+    src="./assets/aurora-arcade-header.svg"
+    alt="Aurora Arcade — A portfolio, reimagined as an adventure"
+    width="100%"
+  />
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/EXPERIENCE-INTERACTIVE-8B5CF6?style=for-the-badge" alt="Interactive experience" />
